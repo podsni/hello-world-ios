@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#007AFF" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Hello World" />
+    <meta name="description" content="App Hello World sederhana untuk iPhone." />
+    <title>Hello World</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f2f2f7;
+        --card: #ffffff;
+        --text: #1c1c1e;
+        --muted: #8e8e93;
+        --accent: #007aff;
+        --shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #000000;
+          --card: #1c1c1e;
+          --text: #f5f5f7;
+          --muted: #8e8e93;
+          --shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        min-height: 100dvh;
+        min-height: -webkit-fill-available;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: env(safe-area-inset-top) env(safe-area-inset-right)
+          env(safe-area-inset-bottom) env(safe-area-inset-left);
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+          "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+      }
+
+      main {
+        width: min(100%, 360px);
+        margin: 24px;
+        padding: 48px 32px 40px;
+        text-align: center;
+        background: var(--card);
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .globe {
+        width: 92px;
+        height: 92px;
+        margin: 0 auto 24px;
+        display: grid;
+        place-items: center;
+        border-radius: 24px;
+        background: var(--accent);
+        box-shadow: 0 10px 24px rgba(0, 122, 255, 0.35);
+      }
+
+      .globe img {
+        width: 92px;
+        height: 92px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.15rem;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1.15;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 1.05rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="globe" aria-hidden="true">
+        <img src="/apple-touch-icon.png" alt="" width="92" height="92" />
+      </div>
+      <h1>Hello, World!</h1>
+      <p>App Hello World untuk iPhone</p>
+    </main>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/sw.js").catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
